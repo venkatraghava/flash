@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="servlet2">
+<form action="servlet2" method="post">
 <input type="username" name="username">
 <input type="password" name="password">
 <button type="submit">click me</button>

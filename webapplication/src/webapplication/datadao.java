@@ -10,8 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
 public class datadao {
-public void adddetails(data d)
+public int adddetails(data d)
 {
+	int res = 0;
 	Connection con=null;
 	PreparedStatement pstmt=null;
 try {
@@ -27,17 +28,14 @@ try {
     pstmt.setString(5,d.username);
     pstmt.setString(6, d.email);
     pstmt.setString(7, d.password);
-    int res=pstmt.executeUpdate();
-    if(res>0)
-    {
-    	System.out.println("success");
-    }
+    res=pstmt.executeUpdate();
     fis.close();
+    
 } catch (SQLException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 } catch (FileNotFoundException e) {
-	// TODO Auto-generated catch block
+	//0 TODO Auto-generated catch block
 	e.printStackTrace();
 } catch (IOException e) {
 	// TODO Auto-generated catch block
@@ -47,9 +45,13 @@ try {
 	e.printStackTrace();
 }
 finally {
+	
     if (pstmt != null) {
         try {
+    
+        	System.out.println("1234");
             pstmt.close();
+    
         } catch (SQLException e) { /* ignored */}
     }
     if (con != null) {
@@ -58,6 +60,7 @@ finally {
         } catch (SQLException e) { /* ignored */}
     }
 }
+return res;
 }
 public data getdata(String username,String password)
 {

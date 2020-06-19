@@ -1,6 +1,7 @@
 package webapplication;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,7 @@ public class servlet1 extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	PrintWriter out=response.getWriter();
 	data d=new data();
 	datadao dao=new datadao();
 	d.name=request.getParameter("name");
@@ -35,7 +37,15 @@ public class servlet1 extends HttpServlet {
 	d.propic=request.getParameter("propic");
 	d.username=request.getParameter("username");
 	d.id=Integer.parseInt(request.getParameter("id"));
-	dao.adddetails(d);
+	int res=dao.adddetails(d);
+	if(res>0)
+	{
+		out.println("success");
+	}
+	else
+	{
+		out.println("fail");
+	}
 	}
 
 }

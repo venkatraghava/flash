@@ -7,11 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+response.setHeader("cache-control","no-cache, no-store,must-revalidate");
+if(session.getAttribute("id")==null)
+{
+	response.sendRedirect("NewFile.jsp");
+}
+%>
 <p>${name}</p>
 <p>${email}</p>
 <p>${id}</p>
 <p>${collegename}</p>
 <p>${username}</p>
 <img src="imagedownloader" width="100px" height=100px>
+<a href="logoutservlet">log out</a>
 </body>
 </html>
