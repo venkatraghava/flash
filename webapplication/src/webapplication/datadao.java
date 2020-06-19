@@ -1,5 +1,6 @@
 package webapplication;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,13 +23,15 @@ try {
     pstmt.setString(1, d.name);
     pstmt.setInt(2,d.id);
     File f=new File(d.propic);
-    FileInputStream fis=new FileInputStream(f);
-    pstmt.setBinaryStream(3,fis);
+    FileInputStream fi=new FileInputStream(f);
+    BufferedInputStream fis=new BufferedInputStream(fi);
+    pstmt.setBlob(3,fis);
     pstmt.setString(4,d.collegename);
     pstmt.setString(5,d.username);
     pstmt.setString(6, d.email);
     pstmt.setString(7, d.password);
     res=pstmt.executeUpdate();
+    fi.close();
     fis.close();
     
 } catch (SQLException e) {

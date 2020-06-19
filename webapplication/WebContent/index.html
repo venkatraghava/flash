@@ -2,19 +2,74 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
+<style>
+.home-section
+{
+background-image:url(5.jpg);
+backround-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+.overlay
+{
+background-size:cover;
+background-attachment:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:rgba(0,0,0,0.3);
+}
+</style>
 </head>
 <body>
-<form action="servlet1" method="post">
-<input type="name" name="name" placeholder="enter your name">
-<input type="password" name="password" placeholder="enter your password">
-<input type="password" name="cpwd" placeholder="confirmpassword">
-<input type="id" name="id" placeholder="enter your id">
-<input type="Username" name="username" placeholder="enter your username">
-<input type="collegename" name="collegename" placeholder="enter your collegename">
-<input type="email" name="email" placeholder="enter your email">
-<input type="file" name="propic">
-<button type="submit">submit</button>
+<div class="home-section" style=" position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100%;
+    width:100%;">
+	<div class="overlay d-flex text-center justify-content-center align-items-center">
+<div class="card card-form text-center" style="background:none; border:none;">
+                             <div class="card-body">
+                                  <h3 class="card-title">Sign up today</h3>
+                                  <h3 class="card-subtittle">Please fill the form to register </h3>
+                                 <form class="form-group" action="servlet1" style="opacity:0.;" method="post">
+<img src="e.png" class="img-fluid rounded-circle" width="100px" height="100px" >
+<input class="form-control m-2" type="name" name="name" placeholder="enter your name">
+<input class="form-control m-2"  type="password" name="password" placeholder="enter your password">
+<input class="form-control m-2"  type="password" name="cpwd" placeholder="confirmpassword">
+<input class="form-control m-2"  type="id" name="id" placeholder="enter your id">
+<input class="form-control m-2"  type="Username" name="username" placeholder="enter your username">
+<input class="form-control m-2"  type="collegename" name="collegename" placeholder="enter your collegename">
+<input class="form-control m-2"  type="email" name="email" placeholder="enter your email">
+<input class="form-control m-2"  type="file" name="propic">
+<button class="btn btn-success" type="submit">submit</button>
 </form>
+                            </div>
+                      </div>
+</div>
+</div>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+  </script>
 </body>
 </html>
