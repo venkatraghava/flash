@@ -102,14 +102,14 @@ public data getdata(String username,String password)
 	}
 	return d;
 }
-public byte[] getimage(){
+public byte[] getimage(int id){
 	byte[] image = null;
 	Connection con=null;
     PreparedStatement pstmt=null;
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/students", "root", "raghava143@");
-	    pstmt=con.prepareStatement("select image from project where id=160030725");
+	    pstmt=con.prepareStatement("select image from project where id="+id);
 	    System.out.println("succes1");
 	ResultSet rs = pstmt.executeQuery();
 	if(rs.next()) {

@@ -3,11 +3,13 @@ package webapplication;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class servlet2
@@ -22,12 +24,23 @@ public class servlet2 extends HttpServlet {
 	String password=request.getParameter("password");
 	datadao dao=new datadao();
 	data d=dao.getdata(username,password);
+	HttpSession ss=request.getSession();
+	ss.setAttribute("id", d.id);
 	PrintWriter out=response.getWriter();
-	if(d.name==null)
-		System.out.println(d.name+"fail");
-	else
-		out.println(d);
 	
+	if(d.name==null)
+	out.println("fail");
+	else
+	{
+		request.setAttribute("name",d.name);
+		request.setAttribute("collegename",d.collegename);
+		request.setAttribute("id",d.id);
+		request.setAttribute("email",d.email);
+		request.setAttribute("username",d.username);
+		RequestDispatcher dispatcher=request.getRequestDispatcher("index2.jsp");
+	   dispatcher.forward(request,response);
+	}
+	out.close();
 	}
 
 }
